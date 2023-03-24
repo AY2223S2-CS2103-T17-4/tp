@@ -3,7 +3,6 @@ package seedu.address.logic.commands.task;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.commands.fish.FishAddCommand.MESSAGE_MISSING_TANK;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PRIORITY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TANK;
 
 import seedu.address.commons.core.index.Index;
@@ -24,11 +23,9 @@ public class TaskAddCommand extends TaskCommand {
             + "Parameters: "
             + PREFIX_DESCRIPTION + "DESCRIPTION "
             + PREFIX_TANK + "<optional> TANK INDEX "
-            + PREFIX_PRIORITY + "<optional> PRIORITY "
             + "Example: " + COMMAND_WORD + " " + TASK_COMMAND_WORD + " "
             + PREFIX_DESCRIPTION + "Clean fresh water tank "
-            + PREFIX_TANK + "1 "
-            + PREFIX_PRIORITY + "medium";
+            + PREFIX_TANK + "1 ";
 
     public static final String MESSAGE_SUCCESS = "New Task added: %1$s";
     public static final String MESSAGE_DUPLICATE_TASK = "This Task already exists in Fish Ahoy!";

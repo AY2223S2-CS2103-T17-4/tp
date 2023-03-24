@@ -8,7 +8,6 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.tank.Tank;
 import seedu.address.model.tank.TankName;
 import seedu.address.model.task.Description;
-import seedu.address.model.task.Priority;
 import seedu.address.model.task.Task;
 
 /**
@@ -22,18 +21,14 @@ class JsonAdaptedTask {
 
     private final String tank;
 
-    private final String priority;
-
     /**
      * Constructs a {@code JsonAdaptedTask} with the given details.
      */
     @JsonCreator
     public JsonAdaptedTask(@JsonProperty("description") String description,
-                           @JsonProperty("tank") String tank,
-                           @JsonProperty("priority") String priority) {
+                           @JsonProperty("tank") String tank) {
         this.description = description;
         this.tank = tank;
-        this.priority = priority;
     }
 
     /**
@@ -42,11 +37,6 @@ class JsonAdaptedTask {
     public JsonAdaptedTask(Task source) {
 
         description = source.getDescription().description;
-        if (source.hasPriority()) {
-            priority = source.getPriority().priority;
-        } else {
-            priority = null;
-        }
         if (source.isTankRelatedTask()) {
             tank = source.getTank().getTankName().fullTankName;
         } else {
@@ -72,13 +62,7 @@ class JsonAdaptedTask {
         if (this.tank != null) {
             modelTank = new Tank(new TankName(this.tank), new AddressBook());
         }
-
-        Priority modelPriority = null;
-        if (this.priority != null) {
-            modelPriority = new Priority(this.priority);
-        }
-
         final Description modelDescription = new Description(description);
-        return new Task(modelDescription, modelTank, modelPriority);
+        return new Task(modelDescription, modelTank);
     }
 }

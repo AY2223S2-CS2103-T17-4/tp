@@ -3,7 +3,6 @@ package seedu.address.model.task;
 import java.util.Objects;
 
 import seedu.address.model.tank.Tank;
-import seedu.address.model.task.exceptions.TaskHasNoPriorityException;
 import seedu.address.model.task.exceptions.TaskHasNoTankException;
 
 /**
@@ -13,37 +12,20 @@ public class Task {
     private final Description description;
     private final boolean isTankRelatedTask;
     private Tank tank;
-    private Priority priority;
-
-    private boolean hasPriority;
 
     /**
      * Constructor for a Task
      * @param description Description of task
      * @param tank Tank (if applicable) tied to this task
-     * @param priority Priority (if applicable) tied to this task
      */
-    public Task(Description description, Tank tank, Priority priority) {
+    public Task(Description description, Tank tank) {
         this.description = description;
         this.tank = tank;
         this.isTankRelatedTask = this.tank != null;
-        this.priority = priority;
-        this.hasPriority = this.priority != null;
     }
 
     public Description getDescription() {
         return this.description;
-    }
-
-    public Priority getPriority() {
-        if (!hasPriority) {
-            throw new TaskHasNoPriorityException(this);
-        }
-        return this.priority;
-    }
-
-    public boolean hasPriority() {
-        return this.hasPriority;
     }
 
     public Tank getTank() {
@@ -84,6 +66,7 @@ public class Task {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getDescription());
+
         return builder.toString();
     }
 }

@@ -18,7 +18,6 @@ import seedu.address.model.tag.Tag;
 import seedu.address.model.tank.Tank;
 import seedu.address.model.tank.TankName;
 import seedu.address.model.task.Description;
-import seedu.address.model.task.Priority;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -140,19 +139,6 @@ public class ParserUtil {
             throw new ParseException(Description.MESSAGE_CONSTRAINTS);
         }
         return new Description(trimmedDescription);
-    }
-
-    /**
-     * Parses a {@code String} into an {@code Priority}.
-     *
-     * @throws ParseException If the given {@code description} is invalid.
-     */
-    public static Priority parsePriority(String priority) throws ParseException {
-        requireNonNull(priority);
-        if (!Priority.isValidPriority(priority)) {
-            throw new ParseException(Priority.MESSAGE_CONSTRAINTS);
-        }
-        return new Priority(priority);
     }
 
     /**

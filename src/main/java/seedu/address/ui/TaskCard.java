@@ -22,8 +22,6 @@ public class TaskCard extends UiPart<Region> {
     private Label description;
     @FXML
     private Label tank;
-    @FXML
-    private Label priority;
 
     /**
      * Creates a {@code TaskCard} with the given {@code Task} and index to display.
@@ -37,11 +35,6 @@ public class TaskCard extends UiPart<Region> {
             tank.setText(task.getTank().getTankName().fullTankName);
         } else {
             tank.setText("");
-        }
-        if (task.hasPriority()) {
-            priority.setText("Priority: " + task.getPriority().priority);
-        } else {
-            priority.setText("Priority:");
         }
     }
 

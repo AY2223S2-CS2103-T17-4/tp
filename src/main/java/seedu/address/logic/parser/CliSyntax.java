@@ -15,5 +15,4 @@ public class CliSyntax {
 
     /* Task prefixes */
     public static final Prefix PREFIX_DESCRIPTION = new Prefix("d/");
-    public static final Prefix PREFIX_PRIORITY = new Prefix("p/");
 }

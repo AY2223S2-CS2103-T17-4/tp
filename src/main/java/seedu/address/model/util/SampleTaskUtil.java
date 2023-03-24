@@ -6,7 +6,6 @@ import seedu.address.model.TaskList;
 import seedu.address.model.tank.Tank;
 import seedu.address.model.tank.TankName;
 import seedu.address.model.task.Description;
-import seedu.address.model.task.Priority;
 import seedu.address.model.task.Task;
 
 /**
@@ -16,9 +15,8 @@ public class SampleTaskUtil {
     public static Task[] getSampleTasks() {
 
         return new Task[] {
-            new Task(new Description("clean tank"), new Tank(new TankName("freshwater tank"), new AddressBook()),
-                    new Priority("medium")),
-            new Task(new Description("feed fish"), null, null)
+            new Task(new Description("clean tank"), new Tank(new TankName("freshwater tank"), new AddressBook())),
+            new Task(new Description("feed fish"), null)
         };
     }
 
